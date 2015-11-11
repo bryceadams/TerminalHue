@@ -150,7 +150,7 @@ class Lights extends Command
          */
         $effect = ($input->getOption('effect')) ? $input->getOption('effect') : 'none';
         foreach ($client->getLights() as $lightId => $light) {
-            if ($light->isReachable()) {
+            if ($light->isOn() && $light->isReachable()) {
                 $light->setEffect($effect);
             }
         }
@@ -160,7 +160,7 @@ class Lights extends Command
          */
         if ($input->getOption('brightness')) {
             foreach ($client->getLights() as $lightId => $light) {
-                if ($light->isReachable()) {
+                if ($light->isOn() && $light->isReachable()) {
                     $light->setBrightness($input->getOption('brightness'));
                 }
             }

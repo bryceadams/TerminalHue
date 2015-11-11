@@ -188,16 +188,15 @@ class Light extends Command
         /**
          * If effect option on, set the effect.
          */
-        if ($input->getOption('effect')) {
-            $light->setEffect($input->getOption('effect'));
-        } else {
-            $light->setEffect('none');
+        $effect = ($input->getOption('effect')) ? $input->getOption('effect') : 'none';
+        if ($light->isOn() && $light->isReachable()) {
+            $light->setEffect($effect);
         }
 
         /**
          * If brightness option on, set it.
          */
-        if ($input->getOption('brightness')) {
+        if ($input->getOption('brightness') && $light->isOn() && $light->isReachable()) {
             $light->setBrightness($input->getOption('brightness'));
         }
 
