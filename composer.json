@@ -2,7 +2,7 @@
     "name": "bryceadams/terminal-hue",
     "description": "A command line app to control your Phillips Hue lights.",
     "require": {
-        "symfony/console": "^3.0@dev",
+        "symfony/console": "dev-master",
         "sqmk/phue": "~1.1.0"
     },
     "type": "project",
